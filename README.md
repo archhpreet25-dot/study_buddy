@@ -1,40 +1,51 @@
 # StudyBuddy — Student Task Manager
 
-A simple, responsive React + JavaScript project that solves a real-world student problem: forgetting assignments, practical work and deadlines.
+A responsive student task manager built with React, JavaScript, Vite, and CSS.
 
 ## Features
-- Add tasks with subject, due date and priority
-- Mark tasks as completed or pending
-- Delete tasks
-- Search by task or subject
-- Filter all, pending, completed and overdue tasks
+- Add tasks with subject, due date, and priority
+- Mark tasks completed or pending; delete tasks
+- Search by task name or subject
+- Filter All, Pending, Completed, and Overdue
 - Dashboard statistics and completion progress
-- Saves tasks in browser `localStorage` (no backend required)
-- Responsive layout for desktop and mobile
+- Save tasks in browser LocalStorage
+- Responsive desktop and mobile layout
 
-## Run locally
-1. Install Node.js (LTS).
-2. Extract this ZIP and open the project folder in a terminal.
-3. Run:
-   ```bash
-   npm install
-   npm run dev
-   ```
-4. Open the local URL shown by Vite (usually http://localhost:5173).
+## Readable component structure
 
-## Build for production
+```text
+src/
+├── components/
+│   ├── Header.jsx
+│   ├── StatsCards.jsx
+│   ├── TaskForm.jsx
+│   ├── TaskToolbar.jsx
+│   ├── TaskList.jsx
+│   └── TaskItem.jsx
+├── hooks/
+│   └── useLocalStorage.js
+├── utils/
+│   └── taskHelpers.js
+├── App.jsx
+├── main.jsx
+└── style.css
+```
+
+`App.jsx` manages shared state. Each component has one responsibility. The custom hook manages LocalStorage, and utility functions handle date logic.
+
+## Run the project
+
+```bash
+npm install
+npm run dev
+```
+
+Open the local URL shown by Vite, usually http://localhost:5173.
+
+## Build
+
 ```bash
 npm run build
 ```
 
-## Practical file explanation
-- `src/main.jsx`: React entry point.
-- `src/App.jsx`: dashboard, task state, add/toggle/delete, search and filters.
-- `src/style.css`: responsive UI design.
-- `localStorage`: stores task data in the same browser on the same device.
-
-## Problem statement
-Students often forget assignment deadlines and struggle to organise work from multiple subjects. StudyBuddy provides one dashboard to record tasks, set deadlines, prioritise work and track completion.
-
-## Future scope
-User login, cloud database, email reminders, calendar integration and multiple student profiles.
+Tech: React 18, JavaScript, Vite, CSS, LocalStorage. No backend required.
